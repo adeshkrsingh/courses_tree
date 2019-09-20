@@ -6,6 +6,7 @@ var CourseDataController = require('../app/controllers/courseDataController');
 router.get('/', function(req, res, next) {
     console.log('welcome to courses data route')
     CourseDataController.getSample();
+    console.log('welcome to courses data route done')
   res.render('index', { title: 'Express' });
 });
 
