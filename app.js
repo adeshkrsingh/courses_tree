@@ -4,11 +4,16 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 var Handlebars = require('hbs');
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/courses_database');
+
+var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
+var coursesRoute = require('./routes/courseDataRoute');
+
+
+
 
 var app = express();
 
@@ -24,6 +29,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/courses', coursesRoute);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
