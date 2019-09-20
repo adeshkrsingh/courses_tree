@@ -6,6 +6,9 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var Handlebars = require('hbs');
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/courses_database');
 
 var app = express();
 
